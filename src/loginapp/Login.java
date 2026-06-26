@@ -27,7 +27,10 @@ public class Login {
                 && cellPhoneNumber.matches("^\\+27\\d{9}$");
     }
 
-    public String registerUser(String firstName, String lastName, String userName, String password, String cellPhoneNumber) {
+    public String registerUser(String firstName, String lastName,
+                               String userName, String password,
+                               String cellPhoneNumber) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -50,6 +53,7 @@ public class Login {
     }
 
     public boolean loginUser(String enteredUserName, String enteredPassword) {
+
         return this.userName != null
                 && this.password != null
                 && this.userName.equals(enteredUserName)
@@ -57,10 +61,29 @@ public class Login {
     }
 
     public String returnLoginStatus(boolean loginStatus) {
+
         if (loginStatus) {
             return "Welcome " + firstName + ", " + lastName + " it is great to see you again.";
-        } else {
-            return "Username or password incorrect, please try again.";
         }
+
+        return "Username or password incorrect, please try again.";
+    }
+
+    // Getters
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getCellPhoneNumber() {
+        return cellPhoneNumber;
     }
 }
